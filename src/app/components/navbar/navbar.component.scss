@@ -1,0 +1,43 @@
+ion-header {
+    width: 100%;
+
+    ion-toolbar {
+        height: 8rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+
+        ion-buttons {
+            ion-menu-button {
+                font-size: 2rem;
+            }
+        }
+
+        ion-title {
+            h2 {
+                font-size: 2.6rem;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    ion-header {
+        width: 100%;
+
+        ion-toolbar {
+            width: 100%;
+            height: 6rem;
+
+            ion-title {
+                h2 {
+                    font-size: 1.9rem;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

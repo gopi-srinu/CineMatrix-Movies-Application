@@ -1,0 +1,114 @@
+section {
+    width: 100%;
+    height: calc(100% - 8rem);
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
+    background-color: var(--app-background);
+
+    ion-card {
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #14213d;
+
+        ion-card-header {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            h3 {
+                color: white;
+                font-size: 2.6rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    section{
+        width: 100%;
+        height: calc(100% - 8rem);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        ion-card{
+            ion-card-header{
+                ion-card-title{
+                    h3{
+                        font-size: 2.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    section{
+        width: 100%;
+        height: calc(100% - 8rem);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        ion-card{
+            ion-card-header{
+                ion-card-title{
+                    h3{
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    section {
+        width: 100%;
+        height: calc(100% - 6rem);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+
+        ion-card {
+            width: 100%;
+            height: 100%;
+            background-color: #14213d;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-tap-highlight-color: transparent;
+
+            ion-card-header {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h3 {
+                    font-size: 1.6rem;
+                    color: white;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

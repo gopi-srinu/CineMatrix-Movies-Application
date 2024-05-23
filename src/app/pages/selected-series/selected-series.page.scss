@@ -1,0 +1,292 @@
+main {
+    width: 100%;
+    height: calc(100% - 8rem);
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    div:nth-child(1) {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            border-radius: 1rem;
+        }
+    }
+
+    .loading {
+        width: 100%;
+        height: calc(100% - 8rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+    }
+
+    .hero-section {
+        width: 100%;
+        height: 100%;
+        color: white;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 2rem;
+        box-sizing: border-box;
+
+        div:nth-child(2) {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 1rem;
+
+            h2 {
+                font-size: 4rem;
+                font-weight: 700;
+            }
+
+            h3 {
+                font-size: 3rem;
+                font-weight: 500;
+            }
+
+            h4 {
+                font-size: 2.4rem;
+                font-weight: 500;
+            }
+
+            p {
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+
+            div {
+                width: fit-content;
+                height: 5rem;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                gap: 1.2rem;
+
+                span {
+                    width: 100%;
+
+                    h4 {
+                        font-size: 2rem;
+                        font-weight: 600;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+
+    span {
+        background-color: rgb(22, 175, 226);
+        padding: 1rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        h3 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
+
+    .trailer-section {
+        width: 100%;
+        height: 100%;
+        background-color: var(--app-background);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        article {
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+
+            div {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .movieImages {
+        width: 100%;
+        height: 100%;
+        background-color: var(--app-background);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        .movieImages::-webkit-scrollbar {
+            display: none;
+        }
+
+        article {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        width: 100%;
+        height: calc(100% - 8rem);
+
+        .hero-section {
+            img {
+                width: 40%;
+                height: 70%;
+                object-fit: cover;
+            }
+
+            div:nth-child(2) {
+                width: 60%;
+                height: 100%;
+
+                h2 {
+                    font-size: 2.6rem;
+                    font-weight: 600;
+                }
+
+                h3 {
+                    font-size: 2.4rem;
+                }
+
+                h4 {
+                    font-size: 2.2rem;
+                    font-weight: 500;
+                }
+
+                p {
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+
+                div {
+                    span {
+                        h4 {
+                            font-size: 1.8rem;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .movieImages {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    main {
+        width: 100%;
+        height: calc(100% - 6rem);
+
+        .hero-section {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+
+            img {
+                width: 50%;
+                height: 30%;
+                object-fit: contain;
+            }
+
+            div:nth-child(2) {
+                width: 100%;
+                height: 60%;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+
+                h2 {
+                    font-size: 2rem;
+                    font-weight: 700;
+                }
+
+                h3 {
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                }
+
+                h4 {
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+
+                div {
+                    border-radius: .5rem;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    overflow-y: hidden;
+                    overflow-x: scroll;
+                    padding: 1rem;
+
+                    span {
+                        width: 100%;
+
+                        h4 {
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                            color: white;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .movieImages {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

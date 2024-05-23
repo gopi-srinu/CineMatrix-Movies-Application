@@ -1,0 +1,512 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<main>
+    <div>
+        <h2>Action Movies</h2>
+        <p (click)="navigateToSelectedPage('action')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let action of actionMovies().slice(0, 6)">
+            <ion-card (click)="getSelectedMovieDetails(action.id)">
+                <img [alt]="action.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + action.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{action.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{action.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon> {{action.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Horror Movies</h2>
+        <p (click)="navigateToSelectedPage('horror')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let horror of horrorMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(horror.id)">
+                <img [alt]="horror.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + horror.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{horror.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{horror.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{horror.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Adventure Movies</h2>
+        <p (click)="navigateToSelectedPage('adventure')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let adventure of adventureMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(adventure.id)">
+                <img [alt]="adventure.original_title"
+                    [src]="'https://image.tmdb.org/t/p/w500/' + adventure.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{adventure.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{adventure.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{adventure.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Racing Movies</h2>
+        <p (click)="navigateToSelectedPage('racing')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let racing of racingMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(racing.id)">
+                <img [alt]="racing.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + racing.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{racing.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{racing.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{racing.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Drama Movies</h2>
+        <p (click)="navigateToSelectedPage('drama')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let drama of dramaMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(drama.id)">
+                <img [alt]="drama.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + drama.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{drama.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{drama.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{drama.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>History</h2>
+        <p (click)="navigateToSelectedPage('history')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let history of historyMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(history.id)">
+                <img [alt]="history.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + history.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{history.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{history.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{history.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Thriller Movies</h2>
+        <p (click)="navigateToSelectedPage('thriller')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let thriller of thrillerMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(thriller.id)">
+                <img [alt]="thriller.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + thriller.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{thriller.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{thriller.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{thriller.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>War Movies</h2>
+        <p (click)="navigateToSelectedPage('war')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let war of warMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(war.id)">
+                <img [alt]="war.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + war.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{war.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{war.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{war.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Family Movies</h2>
+        <p (click)="navigateToSelectedPage('family')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let family of familyMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(family.id)">
+                <img [alt]="family.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + family.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{family.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{family.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{family.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Crime Movies</h2>
+        <p (click)="navigateToSelectedPage('crime')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let crime of crimeMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(crime.id)">
+                <img [alt]="crime.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + crime.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{crime.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{crime.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{crime.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Anime Movies</h2>
+        <p (click)="navigateToSelectedPage('anime')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let anime of animeMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(anime.id)">
+                <img [alt]="anime.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + anime.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{anime.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{anime.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{anime.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Comedy Movies</h2>
+        <p (click)="navigateToSelectedPage('comedy')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let comedy of comedyMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(comedy.id)">
+                <img [alt]="comedy.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + comedy.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{comedy.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{comedy.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{comedy.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Mystery Movies</h2>
+        <p (click)="navigateToSelectedPage('mystery')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let mystery of mysteryMovies().slice(0 , 6)">
+            <ion-card (click)="getSelectedMovieDetails(mystery.id)">
+                <img [alt]="mystery.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + mystery.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{mystery.original_title}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{mystery.release_date | date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{mystery.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Action and Adventure Series</h2>
+        <p (click)="navigateToSelectedPage('action-and-adventure-series')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let action of actionAndAdventureSeries().slice(0 , 6)">
+            <ion-card (click)="getSelectedSeriesPage(action.id)">
+                <img [alt]="action.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + action.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{action.original_name}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{action.first_air_date| date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{action.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Animated Series</h2>
+        <p (click)="navigateToSelectedPage('animated-series')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let animated of animatedSeries().slice(0 , 6)">
+            <ion-card (click)="getSelectedSeriesPage(animated.id)">
+                <img [alt]="animated.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + animated.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{animated.original_name}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{animated.first_air_date| date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{animated.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Comedy Series</h2>
+        <p (click)="navigateToSelectedPage('comedy-series')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let comedy of comedySeries().slice(0 , 6)">
+            <ion-card (click)="getSelectedSeriesPage(comedy.id)">
+                <img [alt]="comedy.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + comedy.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{comedy.original_name}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{comedy.first_air_date| date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{comedy.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Crime Series</h2>
+        <p (click)="navigateToSelectedPage('crime-series')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let crime of crimeSeries().slice(0 , 6)">
+            <ion-card (click)="getSelectedSeriesPage(crime.id)">
+                <img [alt]="crime.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + crime.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{crime.original_name}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{crime.first_air_date| date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{crime.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Documentary</h2>
+        <p (click)="navigateToSelectedPage('documentary-series')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let documentary of documentarySeries().slice(0 , 6)">
+            <ion-card (click)="getSelectedSeriesPage(documentary.id)">
+                <img [alt]="documentary.original_name"
+                    [src]="'https://image.tmdb.org/t/p/w500/' + documentary.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{documentary.original_name}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{documentary.first_air_date| date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{documentary.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Drama Series</h2>
+        <p (click)="navigateToSelectedPage('drama-series')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let drama of dramaSeries().slice(0 , 6)">
+            <ion-card (click)="getSelectedSeriesPage(drama.id)">
+                <img [alt]="drama.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + drama.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{drama.original_name}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{drama.first_air_date| date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{drama.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Mystery Series</h2>
+        <p (click)="navigateToSelectedPage('mystery-series')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let mystery of mysterySeries().slice(0 , 6)">
+            <ion-card (click)="getSelectedSeriesPage(mystery.id)">
+                <img [alt]="mystery.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + mystery.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{mystery.original_name}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{mystery.first_air_date| date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{mystery.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>War and Political Series</h2>
+        <p (click)="navigateToSelectedPage('war-and-political-series')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let war of warAndPolitics().slice(0 , 6)">
+            <ion-card (click)="getSelectedSeriesPage(war.id)">
+                <img [alt]="war.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + war.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{war.original_name}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{war.first_air_date| date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{war.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+    <div>
+        <h2>Family Series</h2>
+        <p (click)="navigateToSelectedPage('family-series')"><ion-icon name="arrow-forward"></ion-icon> View All</p>
+    </div>
+    <section>
+        <article *ngFor="let family of familySeries().slice(0 , 6)">
+            <ion-card (click)="getSelectedSeriesPage(family.id)">
+                <img [alt]="family.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + family.poster_path">
+                <ion-card-header>
+                    <ion-card-title>
+                        <h4>{{family.original_name}}</h4>
+                    </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-card-subtitle>
+                        <h5>{{family.first_air_date| date: 'YYYY'}}</h5>
+                        <p><ion-icon name="star"></ion-icon>{{family.vote_average.toFixed(1)}}</p>
+                    </ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </article>
+    </section>
+</main>

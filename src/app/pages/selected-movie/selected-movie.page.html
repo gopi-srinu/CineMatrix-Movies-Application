@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<main>
+    <div *ngIf="selectedMovieDetails().backdrop_path && !loading">
+        <img [src]="'https://image.tmdb.org/t/p/original/' + selectedMovieDetails().backdrop_path"
+            [alt]="selectedMovieDetails().title">
+    </div>
+    <h3 *ngIf="loading" class="loading">Loading...</h3>
+    <section class="hero-section" *ngIf="!loading">
+        <img [src]="'https://image.tmdb.org/t/p/w342/' + selectedMovieDetails().poster_path"
+            [alt]="selectedMovieDetails().original_title">
+        <div *ngIf="selectedMovieDetails()">
+            <h2>{{selectedMovieDetails().original_title}}</h2>
+            <h3>{{selectedMovieDetails().release_date | date: 'YYYY'}}</h3>
+            <h4>{{selectedMovieDetails().tagline}}</h4>
+            <p>{{selectedMovieDetails().overview}}</p>
+            <div>
+                <span *ngFor="let genre of selectedMovieDetails().genres">
+                    <h4>{{genre.name}}</h4>
+                </span>
+            </div>
+        </div>
+    </section>
+    <span *ngIf="!loading">
+        <h3>Trailers & Images</h3>
+    </span>
+    <section class="trailer-section" *ngIf="!loading">
+        <article>
+            <app-youtube-player
+                [videoUrl]="'https://www.youtube.com/embed/' + selectedMovieClips().results[0].key"></app-youtube-player>
+        </article>
+    </section>
+    <span *ngIf="!loading">
+        <h3>Movie Images</h3>
+    </span>
+    <section class="movieImages" *ngIf="!loading">
+        <article *ngFor="let selectedMovieImages of selectedMovieImages().backdrops">
+            <img [src]="'https://image.tmdb.org/t/p/w500/' + selectedMovieImages.file_path"
+                [alt]="selectedMovieImages.aspect_ratio">
+        </article>
+    </section>
+</main>

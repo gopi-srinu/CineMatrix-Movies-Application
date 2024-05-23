@@ -1,0 +1,22 @@
+<div>
+  <input type="text" [(ngModel)]="movieName" placeholder="Enter your Movie / Series title">
+  <button (click)="getSearchedMovieDetails(movieName)">Search</button>
+</div>
+<section>
+  <article *ngFor="let movie of searchedMovies()">
+    <ion-card (click)="getSelectedMovieDetails(movie.id)">
+      <img [alt]="movie.title" [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" />
+      <ion-card-header>
+        <ion-card-title>
+          <h4>{{movie.original_title}}</h4>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-subtitle>
+          <h5>{{movie.release_date | date:'YYYY'}}</h5>
+          <p><ion-icon name="star"></ion-icon> {{movie.vote_average.toFixed(1)}}</p>
+        </ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+  </article>
+</section>

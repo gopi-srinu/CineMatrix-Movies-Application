@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<section>
+  <article *ngFor="let drama of dramaSeries()">
+    <ion-card (click)="getSelectedSeriesPage(drama.id)">
+      <img [alt]="drama.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + drama.poster_path" />
+      <ion-card-header>
+        <ion-card-title>
+          <h4>{{drama.original_name}}</h4>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-subtitle>
+          <h5>{{drama.first_air_date | date:'YYYY'}}</h5>
+          <p><ion-icon name="star"></ion-icon> {{drama.vote_average.toFixed(1)}}</p>
+        </ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+  </article>
+</section>

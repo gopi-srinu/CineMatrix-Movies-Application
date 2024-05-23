@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<section>
+  <article *ngFor="let warAndPolitical of warAndPoliticalSeries()">
+    <ion-card (click)="getSelectedSeriesPage(warAndPolitical.id)">
+      <img [alt]="warAndPolitical.original_name" [src]="'https://image.tmdb.org/t/p/w500/' + warAndPolitical.poster_path" />
+      <ion-card-header>
+        <ion-card-title>
+          <h4>{{warAndPolitical.original_name}}</h4>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-subtitle>
+          <h5>{{warAndPolitical.first_air_date | date:'YYYY'}}</h5>
+          <p><ion-icon name="star"></ion-icon> {{warAndPolitical.vote_average.toFixed(1)}}</p>
+        </ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+  </article>
+</section>

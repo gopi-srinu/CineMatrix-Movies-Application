@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<section>
+    <article *ngFor="let adventure of adventureMovies()">
+        <ion-card (click)="getSelectedMovieDetails(adventure.id)">
+            <img [alt]="adventure.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + adventure.poster_path" />
+            <ion-card-header>
+                <ion-card-title>
+                    <h4>{{adventure.original_title}}</h4>
+                </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-card-subtitle>
+                    <h5>{{adventure.release_date | date: 'YYYY'}}</h5>
+                    <p><ion-icon name="star"></ion-icon> {{adventure.vote_average.toFixed(1)}}</p>
+                </ion-card-subtitle>
+            </ion-card-content>
+        </ion-card>
+    </article>
+</section>

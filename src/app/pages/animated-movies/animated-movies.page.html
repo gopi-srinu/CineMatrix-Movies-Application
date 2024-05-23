@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<section>
+    <article *ngFor="let animated of animatedMovies()">
+        <ion-card (click)="getSelectedMovieDetails(animated.id)">
+            <img [alt]="animated.original_title" [src]="'https://image.tmdb.org/t/p/w500/' + animated.poster_path" />
+            <ion-card-header>
+                <ion-card-title>
+                    <h4>{{animated.original_title}}</h4>
+                </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-card-subtitle>
+                    <h5>{{animated.release_date | date: 'YYYY'}}</h5>
+                    <p><ion-icon name="star"></ion-icon> {{animated.vote_average.toFixed(1)}}</p>
+                </ion-card-subtitle>
+            </ion-card-content>
+        </ion-card>
+    </article>
+</section>
